@@ -1,6 +1,6 @@
 {
   "rewrites": [
-    { "source": "/neon-auth/:path*", "destination": "https://ep-bitter-unit-b43kobkh.neonauth.c-6.us-east-2.aws.neon.tech/neondb/auth/:path*" },
+    { "source": "/neon-auth/:path*", "destination": "/api/neon-auth?path=:path*" },
     { "source": "/((?!api/|neon-auth/).*)", "destination": "/index.html" }
   ],
   "functions": { "api/*.ts": { "maxDuration": 60 } },
