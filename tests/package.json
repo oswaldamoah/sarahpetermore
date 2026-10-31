@@ -1,0 +1,15 @@
+{
+  "name": "sarahpetermore-tests",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node db.test.mjs && tsx assistant.test.ts",
+    "screenshots": "node preview.mjs"
+  },
+  "dependencies": {
+    "@electric-sql/pglite": "^0.5.13"
+  },
+  "devDependencies": {
+    "tsx": "^4.23.15"
+  }
+}

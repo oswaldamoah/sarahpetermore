@@ -1,0 +1,23 @@
+# dependencies & builds
+node_modules/
+web/dist/
+web/dist-preview/
+*.tsbuildinfo
+
+# secrets — never commit these
+.env
+*.env.local
+web/.env
+
+# WhatsApp link: your login and local state
+web/whatsapp/.auth/
+web/whatsapp/scan-me.png
+web/whatsapp/chats.json
+web/auth-debug.log
+
+# local working files (not needed by the site)
+_to_delete/
+products/
+screenshots/
+.DS_Store
+supabase/.temp/

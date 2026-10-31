@@ -1,0 +1,5 @@
+{
+  "extends": "../api/tsconfig.json",
+  "compilerOptions": { "allowImportingTsExtensions": false },
+  "include": ["./*.ts", "../api/**/*.ts"]
+}

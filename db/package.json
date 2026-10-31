@@ -1,0 +1,12 @@
+{
+  "name": "sarahpetermore-db",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "migrate": "node migrate.mjs",
+    "demo-seed": "node migrate.mjs --demo"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.2.0"
+  }
+}

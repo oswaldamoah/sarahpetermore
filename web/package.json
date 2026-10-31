@@ -1,0 +1,47 @@
+{
+  "name": "sarahpetermore-web",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && tsc -p api/tsconfig.json && vite build",
+    "typecheck": "tsc -b && tsc -p api/tsconfig.json && tsc -p whatsapp/tsconfig.json",
+    "preview": "vite preview",
+    "whatsapp": "tsx whatsapp/bridge.ts"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^6.0.2",
+    "@neondatabase/neon-js": "^0.9.0-beta",
+    "@neondatabase/serverless": "^1.2.0",
+    "@vercel/blob": "^2.8.2",
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.65.0",
+    "papaparse": "^5.7.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-hook-form": "^7.91.0",
+    "react-router-dom": "^6.30.6",
+    "recharts": "^3.10.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "@types/papaparse": "^5.5.2",
+    "@types/qrcode": "^1.5.6",
+    "@types/qrcode-terminal": "^0.12.2",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "@vitejs/plugin-react": "^4.7.0",
+    "@whiskeysockets/baileys": "7.0.0-rc14",
+    "autoprefixer": "^10.6.2",
+    "pino": "^9.6.0",
+    "postcss": "^8.5.32",
+    "qrcode": "^1.5.4",
+    "qrcode-terminal": "^0.12.0",
+    "tailwindcss": "^3.4.19",
+    "tsx": "^4.23.15",
+    "typescript": "5.6",
+    "vite": "^5.4.21"
+  }
+}

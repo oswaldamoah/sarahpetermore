@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { -webkit-text-size-adjust: 100%; -webkit-tap-highlight-color: transparent; }
+  body { @apply bg-cream font-sans text-charcoal antialiased; }
+  h1, h2, h3 { @apply font-serif font-extrabold text-navy; letter-spacing: -0.03em; }
+  :focus-visible { outline: 3px solid #FF7AB8; outline-offset: 2px; border-radius: 10px; }
+  button, a { touch-action: manipulation; }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+}
+
+@layer components {
+  /* Squishy, pressable buttons: a coloured "lip" underneath that flattens when pressed. */
+  .btn-pop {
+    @apply relative inline-flex select-none items-center justify-center gap-2 rounded-full font-semibold transition-[transform,box-shadow,background-color] duration-150;
+    transition-timing-function: cubic-bezier(.3,.7,.4,1.4);
+  }
+  .btn-pop:hover:not(:disabled) { transform: translateY(-1px); }
+  .btn-pop:active:not(:disabled) { transform: translateY(3px) scale(.98); box-shadow: 0 1px 0 0 var(--lip, #E0448F) !important; }
+  .btn-pink { @apply bg-ember text-navy; --lip: #E0448F; box-shadow: 0 4px 0 0 var(--lip); }
+  .btn-pink:hover:not(:disabled) { @apply bg-[#FF8CC2]; }
+  .btn-ink { @apply bg-navy text-white; --lip: #000; box-shadow: 0 4px 0 0 var(--lip); }
+  .btn-soft { @apply border-2 border-navy/10 bg-white text-navy; --lip: rgba(45,18,51,.14); box-shadow: 0 3px 0 0 var(--lip); }
+  .press { @apply transition-transform duration-150; transition-timing-function: cubic-bezier(.3,.7,.4,1.4); }
+  .press:active { transform: scale(.94); }
+
+  .kraft-paper {
+    background-color: #FFD9EA;
+    background-image: radial-gradient(circle at 20% 20%, rgba(255,255,255,.6) 0 18%, transparent 19%), radial-gradient(circle at 80% 70%, rgba(255,255,255,.45) 0 12%, transparent 13%);
+  }
+  .tape { background: rgba(255,122,184,.35); }
+  .admin-input { @apply w-full rounded-xl border border-charcoal-300/60 bg-white px-3 py-2 text-sm text-charcoal-800 placeholder:text-charcoal-300 focus:border-ember focus:outline-none focus:ring-4 focus:ring-ember/15; }
+  .table-head { @apply px-3 py-2 text-left text-xs font-medium text-charcoal-400; }
+  .table-cell { @apply px-3 py-2 text-sm text-charcoal-800; }
+  .no-scrollbar { scrollbar-width: none; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+}
+
+/* ---- motion ---- */
+@keyframes pop-in { 0% { transform: scale(.6); opacity: 0 } 60% { transform: scale(1.15); opacity: 1 } 100% { transform: scale(1) } }
+.pop-in { animation: pop-in .35s cubic-bezier(.3,.7,.4,1.5) both; }
+@keyframes rise { from { transform: translateY(10px); opacity: 0 } to { transform: none; opacity: 1 } }
+.rise { animation: rise .45s cubic-bezier(.2,.8,.2,1) both; }
+@keyframes float-a { 0%,100% { transform: translateY(0) rotate(var(--r, 0deg)) } 50% { transform: translateY(-10px) rotate(var(--r, 0deg)) } }
+.float { animation: float-a 6s ease-in-out infinite; }
+@keyframes shimmer { 0% { background-position: -400px 0 } 100% { background-position: 400px 0 } }
+.skeleton { background: linear-gradient(90deg, #FFEAF3 0, #FFF6FA 40%, #FFEAF3 80%); background-size: 800px 100%; animation: shimmer 1.3s linear infinite; }
+@keyframes jelly { 0%,100% { transform: scale(1,1) } 30% { transform: scale(1.18,.86) } 55% { transform: scale(.92,1.08) } 75% { transform: scale(1.04,.97) } }
+.jelly { animation: jelly .5s ease both; }
+.parcel-drop { animation: rise .6s cubic-bezier(.2,.8,.2,1) both; }
+/* Page transitions fade only: a moving (transformed) page would trap the sticky bars inside it. */
+@keyframes page-in { from { opacity: 0 } to { opacity: 1 } }
+.page-in { animation: page-in .3s ease-out both; }

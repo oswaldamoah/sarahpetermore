@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    { "source": "/neon-auth/:path*", "destination": "https://ep-bitter-unit-b43kobkh.neonauth.c-6.us-east-2.aws.neon.tech/neondb/auth/:path*" },
+    { "source": "/((?!api/|neon-auth/).*)", "destination": "/index.html" }
+  ],
+  "functions": { "api/*.ts": { "maxDuration": 60 } },
+  "crons": [{ "path": "/api/notify", "schedule": "0 7 * * *" }],
+  "headers": [
+    { "source": "/assets/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }] },
+    { "source": "/img/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800, stale-while-revalidate=86400" }] }
+  ]
+}
