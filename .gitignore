@@ -16,8 +16,8 @@ web/whatsapp/chats.json
 web/auth-debug.log
 
 # local working files (not needed by the site)
-_to_delete/
-products/
-screenshots/
+/_to_delete/
+/products/
+/screenshots/
 .DS_Store
 supabase/.temp/
